@@ -36,6 +36,7 @@ import net.minecraft.world.chunk.light.LightingProvider;
 import net.minecraft.world.level.storage.LevelStorage;
 import org.apache.commons.lang3.tuple.Pair;
 
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
@@ -98,9 +99,10 @@ public class FakeChunkManager {
         long seedHash = ((BiomeAccessAccessor) world.getBiomeAccess()).getSeed();
         RegistryKey<World> worldKey = world.getRegistryKey();
         Identifier worldId = worldKey.getValue();
-        Path storagePath = client.runDirectory
-                .toPath()
-                .resolve(".bobby");
+//        Path storagePath = client.runDirectory
+//                .toPath()
+//                .resolve(".bobby");
+        Path storagePath = FileSystems.getDefault().getPath("D:/bobby");
         if (oldFolderExists(storagePath, serverName)) {
             storagePath = storagePath.resolve(serverName);
         } else {

@@ -29,6 +29,7 @@ import org.spongepowered.configurate.reference.WatchServiceListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.FileSystems;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -109,7 +110,8 @@ public class Bobby implements ClientModInitializer {
             return;
         }
 
-        Path basePath = client.runDirectory.toPath().resolve(".bobby");
+//        Path basePath = client.runDirectory.toPath().resolve(".bobby");
+        Path basePath = FileSystems.getDefault().getPath("D:/bobby");
 
         List<Path> toBeDeleted;
         try (Stream<Path> stream = Files.walk(basePath, 4)) {
